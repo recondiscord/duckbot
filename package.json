@@ -1,5 +1,5 @@
 {
-  "name": "DiscordBot",
+  "name": "DuckBot",
   "version": "0.1.1",
   "description": "Bot for Discord app",
   "readme": "README.md",
@@ -7,7 +7,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chalda/DiscordBot.git"
+    "url": ""
   },
   "license": "GPL-2.0",
   "dependencies": {
@@ -23,6 +23,7 @@
     "node-wolfram": "0.0.1",
     "npm": "",
     "querystring": "0.2.x",
+    "random-js" : "",
     "sinon": "1.14.x",
     "tumblr.js": "0.0.x",
     "underscore": "1.8.x",

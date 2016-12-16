@@ -1,4 +1,5 @@
 var fs = require('fs');
+var random = require("random-js")();
 
 try {
 	var Discord = require("discord.js");
@@ -131,10 +132,55 @@ var meme = {
 	"awkwardpenguin": 61584
 };
 
+//duckmemes - pictures/duckmemes
+var duckmemes = [
+    "pictures/duckmemes/duckmeme1.jpg",
+    "pictures/duckmemes/duckmeme2.jpg",
+    "pictures/duckmemes/duckmeme3.jpg",
+    "pictures/duckmemes/duckmeme4.jpg",
+    "pictures/duckmemes/duckmeme5.jpg",
+    "pictures/duckmemes/duckmeme6.jpg",
+    "pictures/duckmemes/duckmeme7.jpg",
+    "pictures/duckmemes/duckmeme8.jpg",
+    "pictures/duckmemes/duckmeme9.jpg",
+    "pictures/duckmemes/duckmeme10.jpg"
+];
+//ragestickers - pictures/linestickers
+var ragestickers = [
+    "pictures/linestickers/rage1.png",
+    "pictures/linestickers/rage2.png",
+    "pictures/linestickers/rage3.png",
+    "pictures/linestickers/rage4.png",
+    "pictures/linestickers/rage5.png",
+    "pictures/linestickers/rage6.png",
+    "pictures/linestickers/rage7.png",
+    "pictures/linestickers/rage8.png"
+];
+
 var aliases;
 var messagebox;
 
 var commands = {
+    "hello": {
+        description: "sends greeting message",
+        process: function(bot,msg){msg.channel.sendMessage("Hello world! **Join the duck side!**");}
+    },
+    "bones": {
+        description: "posts the bones sticker",
+        process: function(bot,msg){msg.channel.sendFile("pictures/linestickers/bones.png");}
+    },
+    "duckmeme": {
+        description: "posts a random duck meme",
+        process: function(bot,msg){
+            var randomMemeIndex = random.integer(0,duckmemes.length-1);
+            msg.channel.sendFile(duckmemes[randomMemeIndex]);}
+    },
+    "rage": {
+        description: "posts a random rage sticker",
+        process: function(bot,msg){
+            var randomRageIndex = random.integer(0,ragestickers.length-1);
+            msg.channel.sendFile(ragestickers[randomRageIndex]);}
+    },
 	"aliases": {
 		description: "lists all recorded aliases",
 		process: function(bot, msg, suffix) {
