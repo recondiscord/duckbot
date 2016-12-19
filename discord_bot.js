@@ -161,6 +161,204 @@ var aliases;
 var messagebox;
 
 var commands = {
+    "cg": {
+        description: "cg's cars",
+        process: function(bot,msg){msg.channel.sendFile("pictures/cg.jpg");}
+    },
+    "whiskey": {
+        description: "whiskey",
+        process: function(bot,msg){msg.channel.sendFile("pictures/bmwhiskey.gif");}
+    },
+    "aat1": {
+        description: "sends the AAT schedule as png and countdowns to all phases",
+        process: function(bot,msg){
+        	var args = msg.content.split(" ");
+        	if (args[1]==null) {
+        		msg.channel.sendMessage("In how many minutes does P1 start?");
+        	}
+        	else {
+	        	var p1q=args[1];
+	        	var p1=360;
+	        	var p2=360;
+	        	var p3=600;   	
+	        	msg.channel.sendMessage("AAT raid started - schedule 1, see times below");
+				msg.channel.sendFile("pictures/aat1.png");
+			    function sm(message, timeout) {
+			    	setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(1000*60)));},timeout);
+			    }
+	        	for(var i = 0; i<p1q;i++){
+	        		var left=p1q-i;
+	        		var message= "P1 starts in " + left + " minutes";
+	        		sm(message,i*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P1 starts now!");},i*60*1000);
+
+	        	for(var j = 0; j<p1;j++){
+	        		var left=p1-j;
+	        		var message= "P2 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + j*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P2 starts now!");},p1q*60*1000 + j*60*1000);
+
+	        	for(var k = 0; k<p2;k++){
+	        		var left=p2-k;
+	        		var message= "P3 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + p1*60*1000 + k*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P3 starts now!");},p1q*60*1000 + p1*60*1000 + k*60*1000);
+
+	        	for(var l = 0; l<p3;l++){
+	        		var left=p3-l;
+	        		var message= "P4 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P4 starts now!");},p1q*6*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);        		
+        	}
+    	}
+    },
+    "aat2": {
+        description: "sends the AAT schedule as png and countdowns to all phases",
+        process: function(bot,msg){
+        	var args = msg.content.split(" ");
+        	if (args[1]==null) {
+        		msg.channel.sendMessage("In how many minutes does P1 start?");
+        	}
+        	else {
+	        	var p1q=args[1];
+	        	var p1=360;
+	        	var p2=360;
+	        	var p3=600;   	
+	        	msg.channel.sendMessage("AAT raid started - schedule 2, see times below");
+				msg.channel.sendFile("pictures/aat2.png");
+			    function sm(message, timeout) {
+			    	setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(1000*60)));},timeout);
+			    }
+	        	for(var i = 0; i<p1q;i++){
+	        		var left=p1q-i;
+	        		var message= "P1 starts in " + left + " minutes";
+	        		sm(message,i*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P1 starts now!");},i*60*1000);
+
+	        	for(var j = 0; j<p1;j++){
+	        		var left=p1-j;
+	        		var message= "P2 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + j*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P2 starts now!");},p1q*60*1000 + j*60*1000);
+
+	        	for(var k = 0; k<p2;k++){
+	        		var left=p2-k;
+	        		var message= "P3 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + p1*60*1000 + k*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P3 starts now!");},p1q*60*1000 + p1*60*1000 + k*60*1000);
+
+	        	for(var l = 0; l<p3;l++){
+	        		var left=p3-l;
+	        		var message= "P4 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P4 starts now!");},p1q*6*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);        		
+        	}
+    	}
+    },
+    "aat3": {
+        description: "sends the AAT schedule as png and countdowns to all phases",
+        process: function(bot,msg){
+        	var args = msg.content.split(" ");
+        	if (args[1]==null) {
+        		msg.channel.sendMessage("In how many minutes does P1 start?");
+        	}
+        	else {
+	        	var p1q=args[1];
+	        	var p1=360;
+	        	var p2=360;
+	        	var p3=360;   	
+	        	msg.channel.sendMessage("AAT raid started - schedule 3, see times below");
+				msg.channel.sendFile("pictures/aat3.png");
+			    function sm(message, timeout) {
+			    	setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(1000*60)));},timeout);
+			    }
+	        	for(var i = 0; i<p1q;i++){
+	        		var left=p1q-i;
+	        		var message= "P1 starts in " + left + " minutes";
+	        		sm(message,i*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P1 starts now!");},i*60*1000);
+
+	        	for(var j = 0; j<p1;j++){
+	        		var left=p1-j;
+	        		var message= "P2 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + j*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P2 starts now!");},p1q*60*1000 + j*60*1000);
+
+	        	for(var k = 0; k<p2;k++){
+	        		var left=p2-k;
+	        		var message= "P3 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + p1*60*1000 + k*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P3 starts now!");},p1q*60*1000 + p1*60*1000 + k*60*1000);
+
+	        	for(var l = 0; l<p3;l++){
+	        		var left=p3-l;
+	        		var message= "P4 starts in " + left + " minutes";
+	        		sm(message,p1q*60*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);
+	        	}
+			    setTimeout(function(){msg.channel.sendMessage("@everyone P4 starts now!");},p1q*6*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);        		
+        	}
+    	}
+    },
+    "scountdown": {
+        description: "countdown in seconds",
+        process: function(bot,msg){
+        	var args = msg.content.split(" ");
+        	function sm(message, timeout) {
+        		setTimeout(function(){msg.channel.sendMessage(message);},timeout);
+        	}
+        	for(var i = 0; i<args[1];i++){
+        		var left=args[1]-i;
+        		var message=args[2] + " starts in " + left + " seconds";
+        		sm(message,i*1000);
+        	}
+        	sm(args[2] + " starts now!",i*1000);
+
+        }
+    },
+    "countdown": {
+        description: "countdown in minutes. Add minutes after command and what you want to countdown to. 2 or 3 arguments possible",
+        process: function(bot,msg){
+        	var args = msg.content.split(" ");
+        	if(args[2]==null){
+        		msg.channel.sendMessage("What do you want to countdown to?")
+        	}
+        	else {
+        		if(args[3]==null) {
+		        	function sm(message, timeout) {
+		        		setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(1000*60)));},timeout);
+		        	}
+		        	for(var i = 0; i<args[1];i++){
+		        		var left=args[1]-i;
+		        		var message=args[2] + " starts in " + left + " minutes";
+		        		sm(message,i*1000*60);
+		        	}
+		        	setTimeout(function(){msg.channel.sendMessage(args[2] + " starts now!");},i*1000*60);	        			
+        		}	
+        		else {
+		        	function sm(message, timeout) {
+		        		setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(1000*60)));},timeout);
+		        	}
+		        	for(var i = 0; i<args[1];i++){
+		        		var left=args[1]-i;
+		        		var message=args[2] + " starts in " + left + " minutes";
+		        		sm(message,i*1000*60);
+		        	}
+		        	setTimeout(function(){msg.channel.sendMessage("@"+args[3] + " " + args[2] + " starts now!");},i*1000*60);	        			
+        		}
+        	}
+        }
+    },
     "hello": {
         description: "sends greeting message",
         process: function(bot,msg){msg.channel.sendMessage("Hello world! **Join the duck side!**");}
