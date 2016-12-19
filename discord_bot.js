@@ -188,6 +188,7 @@ var yeahstickers = [
 var aliases;
 var messagebox;
 
+
 var commands = {
     "cg": {
         description: "cg's cars",
@@ -200,6 +201,10 @@ var commands = {
     "aat1": {
         description: "sends the AAT schedule as png and countdowns to all phases",
         process: function(bot,msg){
+        	var fs = require('fs');
+
+			// file is included here:
+			eval(fs.readFileSync('countdown.js')+'');
         	var args = msg.content.split(" ");
         	if (args[1]==null) {
         		msg.channel.sendMessage("In how many minutes does P1 start?");
@@ -211,42 +216,21 @@ var commands = {
 	        	var p3=600;   	
 	        	msg.channel.sendMessage("AAT raid started - schedule 1, see times below");
 				msg.channel.sendFile("pictures/aat1.png");
-			    function sm(message, timeout) {
-			    	setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(1000*60)));},timeout);
-			    }
-	        	for(var i = 0; i<p1q;i++){
-	        		var left=p1q-i;
-	        		var message= "P1 starts in " + left + " minutes";
-	        		sm(message,i*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P1 starts now!");},i*60*1000);
-
-	        	for(var j = 0; j<p1;j++){
-	        		var left=p1-j;
-	        		var message= "P2 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + j*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P2 starts now!");},p1q*60*1000 + j*60*1000);
-
-	        	for(var k = 0; k<p2;k++){
-	        		var left=p2-k;
-	        		var message= "P3 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + p1*60*1000 + k*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P3 starts now!");},p1q*60*1000 + p1*60*1000 + k*60*1000);
-
-	        	for(var l = 0; l<p3;l++){
-	        		var left=p3-l;
-	        		var message= "P4 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P4 starts now!");},p1q*6*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);        		
+	        	msg.channel.sendMessage("Countdown started. " + p1q + " minutes to P1 commit");  		
+	        	countdown(p1q,"AAT P1 commit","everyone", "aat");  
+	        	setTimeout(function(){countdown(p1,"AAT P2 commit","everyone", "aat")},p1q*60*1000);
+	        	setTimeout(function(){countdown(p2,"AAT P3 commit","everyone", "aat")},p1q*60*1000+p1*60*1000);
+	        	setTimeout(function(){countdown(p3,"AAT P4 commit","everyone", "aat")},p1q*60*1000+p1*60*1000+p2*60*1000);
         	}
     	}
     },
     "aat2": {
         description: "sends the AAT schedule as png and countdowns to all phases",
         process: function(bot,msg){
+        	var fs = require('fs');
+
+			// file is included here:
+			eval(fs.readFileSync('countdown.js')+'');
         	var args = msg.content.split(" ");
         	if (args[1]==null) {
         		msg.channel.sendMessage("In how many minutes does P1 start?");
@@ -258,42 +242,21 @@ var commands = {
 	        	var p3=600;   	
 	        	msg.channel.sendMessage("AAT raid started - schedule 2, see times below");
 				msg.channel.sendFile("pictures/aat2.png");
-			    function sm(message, timeout) {
-			    	setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(1000*60)));},timeout);
-			    }
-	        	for(var i = 0; i<p1q;i++){
-	        		var left=p1q-i;
-	        		var message= "P1 starts in " + left + " minutes";
-	        		sm(message,i*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P1 starts now!");},i*60*1000);
-
-	        	for(var j = 0; j<p1;j++){
-	        		var left=p1-j;
-	        		var message= "P2 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + j*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P2 starts now!");},p1q*60*1000 + j*60*1000);
-
-	        	for(var k = 0; k<p2;k++){
-	        		var left=p2-k;
-	        		var message= "P3 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + p1*60*1000 + k*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P3 starts now!");},p1q*60*1000 + p1*60*1000 + k*60*1000);
-
-	        	for(var l = 0; l<p3;l++){
-	        		var left=p3-l;
-	        		var message= "P4 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P4 starts now!");},p1q*6*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);        		
+	        	msg.channel.sendMessage("Countdown started. " + p1q + " minutes to P1 commit");  		
+	        	countdown(p1q,"AAT P1 commit","everyone", "aat");  
+	        	setTimeout(function(){countdown(p1,"AAT P2 commit","everyone", "aat")},p1q*60*1000);
+	        	setTimeout(function(){countdown(p2,"AAT P3 commit","everyone", "aat")},p1q*60*1000+p1*60*1000);
+	        	setTimeout(function(){countdown(p3,"AAT P4 commit","everyone", "aat")},p1q*60*1000+p1*60*1000+p2*60*1000);
         	}
     	}
     },
     "aat3": {
         description: "sends the AAT schedule as png and countdowns to all phases",
         process: function(bot,msg){
+        	var fs = require('fs');
+
+			// file is included here:
+			eval(fs.readFileSync('countdown.js')+'');
         	var args = msg.content.split(" ");
         	if (args[1]==null) {
         		msg.channel.sendMessage("In how many minutes does P1 start?");
@@ -305,57 +268,16 @@ var commands = {
 	        	var p3=360;   	
 	        	msg.channel.sendMessage("AAT raid started - schedule 3, see times below");
 				msg.channel.sendFile("pictures/aat3.png");
-			    function sm(message, timeout) {
-			    	setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(1000*60)));},timeout);
-			    }
-	        	for(var i = 0; i<p1q;i++){
-	        		var left=p1q-i;
-	        		var message= "P1 starts in " + left + " minutes";
-	        		sm(message,i*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P1 starts now!");},i*60*1000);
-
-	        	for(var j = 0; j<p1;j++){
-	        		var left=p1-j;
-	        		var message= "P2 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + j*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P2 starts now!");},p1q*60*1000 + j*60*1000);
-
-	        	for(var k = 0; k<p2;k++){
-	        		var left=p2-k;
-	        		var message= "P3 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + p1*60*1000 + k*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P3 starts now!");},p1q*60*1000 + p1*60*1000 + k*60*1000);
-
-	        	for(var l = 0; l<p3;l++){
-	        		var left=p3-l;
-	        		var message= "P4 starts in " + left + " minutes";
-	        		sm(message,p1q*60*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);
-	        	}
-			    setTimeout(function(){msg.channel.sendMessage("@everyone P4 starts now!");},p1q*6*1000 + p1*60*1000 + p2*60*1000 + l*60*1000);        		
+	        	msg.channel.sendMessage("Countdown started. " + p1q + " minutes to P1 commit");  		
+	        	countdown(p1q,"AAT P1 commit","everyone", "aat");  
+	        	setTimeout(function(){countdown(p1,"AAT P2 commit","everyone", "aat")},p1q*60*1000);
+	        	setTimeout(function(){countdown(p2,"AAT P3 commit","everyone", "aat")},p1q*60*1000+p1*60*1000);
+	        	setTimeout(function(){countdown(p3,"AAT P4 commit","everyone", "aat")},p1q*60*1000+p1*60*1000+p2*60*1000);
         	}
     	}
     },
-    "scountdown": {
-        description: "countdown in seconds",
-        process: function(bot,msg){
-        	var args = msg.content.split(" ");
-        	function sm(message, timeout) {
-        		setTimeout(function(){msg.channel.sendMessage(message);},timeout);
-        	}
-        	for(var i = 0; i<args[1];i++){
-        		var left=args[1]-i;
-        		var message=args[2] + " starts in " + left + " seconds";
-        		sm(message,i*1000);
-        	}
-        	sm(args[2] + " starts now!",i*1000);
-
-        }
-    },
-    "countdown": {
-        description: "countdown in minutes. Add minutes after command and what you want to countdown to. 2 or 3 arguments possible",
+    "mcountdown": {
+        description: "delayed countdown in minutes. Arg1: minutes to countdown, Arg2: Event to countdown to, Arg3: everyone it should notify everyone",
         process: function(bot,msg){
         	var args = msg.content.split(" ");
         	if(args[2]==null){
@@ -385,6 +307,61 @@ var commands = {
 		        	setTimeout(function(){msg.channel.sendMessage("@"+args[3] + " " + args[2] + " starts now!");},i*1000*60);	        			
         		}
         	}
+        }
+    },
+    "countdown": {
+        description: "delayed countdown in minutes. Arg1: minutes to countdown, Arg2: Event to countdown to, Arg3: everyone it should notify everyone",
+        process: function(bot,msg){
+        	var fs = require('fs');
+
+			// file is included here:
+			eval(fs.readFileSync('countdown.js')+'');
+        	var args = msg.content.split(" ");
+        	if(args[1]==null){
+        		msg.channel.sendMessage("Please add how many minutes you want to countdown.")
+        	}
+        	if(args[2]==null){
+        		msg.channel.sendMessage("Please add what you want to countdown to.")
+        	} 
+        	else {
+	        	if(args[1] != null) {
+	        		msg.channel.sendMessage("Countdown started. " + args[1] + " minutes to " + args[2]);
+	        		if(args[3]==null) {
+	        			countdown(args[1],args[2],"no","countdown");  			
+	        		}	
+	        		else {
+			        	countdown(args[1],args[2],args[3], "countdown");  	        			
+	        		}
+	        	}
+	        }
+        }
+    },
+    "dcountdown": {
+        description: "delayed countdown in minutes. Arg1: minutes to countdown, Arg2: Event to countdown to, Arg3: countdown delay, Arg4: everyone it should notify everyone",
+        process: function(bot,msg){
+        	var fs = require('fs');
+
+			// file is included here:
+			eval(fs.readFileSync('countdown.js')+'');
+        	var args = msg.content.split(" ");
+        	var delay=args[3];
+        	if(args[1]==null){
+        		msg.channel.sendMessage("Please add how many minutes you want to countdown.")
+        	}
+        	if(args[2]==null){
+        		msg.channel.sendMessage("Please add what you want to countdown to.")
+        	} 
+        	else {
+	        	if(args[1] != null) {
+	        		msg.channel.sendMessage("Countdown will start in "+delay+" minutes");
+	        		if(args[4]==null) {
+	        			setTimeout(function(){countdown(args[1],args[2],"no","countdown")},1*60*1000);  			
+	        		}	
+	        		else {
+			        	setTimeout(function(){countdown(args[1],args[2],args[4], "countdown")},1*60*1000);  	        			
+	        		}
+	        	}
+	        }
         }
     },
     "hello": {
