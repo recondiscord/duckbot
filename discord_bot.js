@@ -442,6 +442,13 @@ var commands = {
             var randomIndex = random.integer(0,stickertype.length-1);
             msg.channel.sendFile(stickertype[randomIndex]);}
     },
+    "friday": {
+        description: "posts a random friday sticker",
+        process: function(bot,msg){
+        	var stickertype=fridaystickers;
+            var randomIndex = random.integer(0,stickertype.length-1);
+            msg.channel.sendFile(stickertype[randomIndex]);}
+    },
 	"aliases": {
 		description: "lists all recorded aliases",
 		process: function(bot, msg, suffix) {
