@@ -147,14 +147,42 @@ var duckmemes = [
 ];
 //ragestickers - pictures/linestickers
 var ragestickers = [
-    "pictures/linestickers/rage1.png",
-    "pictures/linestickers/rage2.png",
-    "pictures/linestickers/rage3.png",
-    "pictures/linestickers/rage4.png",
-    "pictures/linestickers/rage5.png",
-    "pictures/linestickers/rage6.png",
-    "pictures/linestickers/rage7.png",
-    "pictures/linestickers/rage8.png"
+    "pictures/linestickers/rage/rage1.png",
+    "pictures/linestickers/rage/rage2.png",
+    "pictures/linestickers/rage/rage3.png",
+    "pictures/linestickers/rage/rage4.png",
+    "pictures/linestickers/rage/rage5.png",
+    "pictures/linestickers/rage/rage6.png",
+    "pictures/linestickers/rage/rage7.png",
+    "pictures/linestickers/rage/rage8.png",
+    "pictures/linestickers/rage/rage9.png"
+];
+var fridaystickers = [
+"pictures/linestickers/friday1.png",
+"pictures/linestickers/friday2.png"
+];
+var grinstickers = [
+"pictures/linestickers/grin/grin1.png"
+];
+var hahastickers = [
+"pictures/linestickers/haha/haha1.png",
+"pictures/linestickers/haha/haha2.png"
+];
+var lolstickers = [
+"pictures/linestickers/lol/lol1.png",
+"pictures/linestickers/lol/lol2.png",
+"pictures/linestickers/lol/lol3.png"
+];
+var thanksstickers = [
+"pictures/linestickers/thanks/thanks1.png",
+"pictures/linestickers/thanks/thanks2.png",
+"pictures/linestickers/thanks/thanks3.png"
+];
+var yeahstickers = [
+"pictures/linestickers/yeah/yeah1.png",
+"pictures/linestickers/yeah/yeah2.png",
+"pictures/linestickers/yeah/yeah3.png",
+"pictures/linestickers/yeah/yeah4.png"
 ];
 
 var aliases;
@@ -378,6 +406,41 @@ var commands = {
         process: function(bot,msg){
             var randomRageIndex = random.integer(0,ragestickers.length-1);
             msg.channel.sendFile(ragestickers[randomRageIndex]);}
+    },
+    "grin": {
+        description: "posts a random grin sticker",
+        process: function(bot,msg){
+        	var stickertype=grinstickers;
+            var randomIndex = random.integer(0,stickertype.length-1);
+            msg.channel.sendFile(stickertype[randomIndex]);}
+    },
+    "haha": {
+        description: "posts a random haha sticker",
+        process: function(bot,msg){
+        	var stickertype=hahastickers;
+            var randomIndex = random.integer(0,stickertype.length-1);
+            msg.channel.sendFile(stickertype[randomIndex]);}
+    },
+    "lol": {
+        description: "posts a random lol sticker",
+        process: function(bot,msg){
+        	var stickertype=lolstickers;
+            var randomIndex = random.integer(0,stickertype.length-1);
+            msg.channel.sendFile(stickertype[randomIndex]);}
+    },
+    "thanks": {
+        description: "posts a random thanks sticker",
+        process: function(bot,msg){
+        	var stickertype=thanksstickers;
+            var randomIndex = random.integer(0,stickertype.length-1);
+            msg.channel.sendFile(stickertype[randomIndex]);}
+    },
+    "yeah": {
+        description: "posts a random yeah sticker",
+        process: function(bot,msg){
+        	var stickertype=yeahstickers;
+            var randomIndex = random.integer(0,stickertype.length-1);
+            msg.channel.sendFile(stickertype[randomIndex]);}
     },
 	"aliases": {
 		description: "lists all recorded aliases",
