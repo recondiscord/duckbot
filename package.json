@@ -19,6 +19,7 @@
     "html-to-text": "1.5.x",
     "imgflipper": "1.0.x",
     "leet": "^1.2.7",
+    "mathjs":"",
     "nock": "1.7.x",
     "node-wolfram": "0.0.1",
     "npm": "",

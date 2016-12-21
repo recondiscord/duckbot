@@ -1,4 +1,5 @@
 var fs = require('fs');
+var math = require('mathjs');
 var random = require("random-js")();
 
 try {
@@ -190,6 +191,18 @@ var messagebox;
 
 
 var commands = {
+	"selfie": {
+        description: "selfie picture",
+        process: function(bot,msg){msg.channel.sendFile("pictures/selfie.jpg");}
+    },
+	"salt": {
+        description: "salt picture",
+        process: function(bot,msg){msg.channel.sendFile("pictures/salt.jpg");}
+    },
+	"duckrevolution": {
+        description: "duckrevolution picture",
+        process: function(bot,msg){msg.channel.sendFile("pictures/duckrevolution.png");}
+    },
     "cg": {
         description: "cg's cars",
         process: function(bot,msg){msg.channel.sendFile("pictures/cg.jpg");}
@@ -324,8 +337,13 @@ var commands = {
         		msg.channel.sendMessage("Please add what you want to countdown to.")
         	} 
         	else {
-	        	if(args[1] != null) {
-	        		msg.channel.sendMessage("Countdown started. " + args[1] + " minutes to " + args[2]);
+	        	if(isNaN(args[1])) {
+        			msg.channel.sendMessage("Please add minutes as a number.")
+				}
+				else {
+		        	var h=math.floor(args[1]/60);
+		        	var m=args[1]%60;
+	        		msg.channel.sendMessage("Countdown started. "+h+"h"+m+"min to " + args[2]);
 	        		if(args[3]==null) {
 	        			countdown(args[1],args[2],"no","countdown");  			
 	        		}	
