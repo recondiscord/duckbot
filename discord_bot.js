@@ -191,6 +191,14 @@ var messagebox;
 
 
 var commands = {
+	"bull": {
+        description: "bull picture",
+        process: function(bot,msg){msg.channel.sendFile("pictures/bull.png");}
+    },
+	"yc": {
+        description: "yc picture",
+        process: function(bot,msg){msg.channel.sendFile("pictures/yc.png");}
+    },
 	"selfie": {
         description: "selfie picture",
         process: function(bot,msg){msg.channel.sendFile("pictures/selfie.jpg");}
