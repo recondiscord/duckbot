@@ -192,8 +192,8 @@ var messagebox;
 
 var commands = {
     "duckbot": {
-        description: "bull picture",
-        process: function(bot,msg){msg.channel.sendFile("pictures/duckbot.png");}
+        description: "duckbot picture",
+        process: function(bot,msg){msg.channel.sendFile("pictures/duckbot.jpg");}
     },
 	"bull": {
         description: "bull picture",
