@@ -389,6 +389,96 @@ var commands = {
             }
         }
     },
+    "cdtomst": {
+        description: "countdown to specific time. Arg1: time to countdown to, Arg2: Event to countdown to, Arg3: everyone it should notify everyone",
+        process: function(bot,msg){
+            var fs = require('fs');
+
+            // file is included here:
+            eval(fs.readFileSync('countdown.js')+'');
+            var args = msg.content.split(" ");
+            if(args[1]==null){
+                msg.channel.sendMessage("Please add how many minutes you want to countdown.")
+            }
+            if(args[2]==null){
+                msg.channel.sendMessage("Please add what you want to countdown to.")
+            } 
+            else {
+                if(isNaN(args[1])) {
+                    msg.channel.sendMessage("Please add minutes as a number.")
+                }
+                else {
+                    var date = new Date();
+                    var hnow = date.getHours()-7;
+                    var mnow = date.getMinutes();
+                    var snow = date.getSeconds();
+                    var ms = date.getMilliseconds();
+                    var htocd = math.floor(args[1]);
+                    var mtocd = math.round(args[1]%1*100);
+
+                    var mins=(htocd-hnow)*60+(mtocd-mnow)-snow/60-ms/60000;
+                    if(mins<0){
+                        mins=mins+24*60;
+                    }
+
+                    var h=math.floor(mins/60);
+                    var m=mins%60;
+                    msg.channel.sendMessage("Countdown started. "+h+"h"+m+"min to " + args[2]);
+                    if(args[3]==null) {
+                        countdown(mins,args[2],"no","countdown");            
+                    }   
+                    else {
+                        countdown(mins,args[2],args[3], "countdown");                        
+                    }
+                }
+            }
+        }
+    },
+    "cdtocet": {
+        description: "countdown to specific time. Arg1: time to countdown to, Arg2: Event to countdown to, Arg3: everyone it should notify everyone",
+        process: function(bot,msg){
+            var fs = require('fs');
+
+            // file is included here:
+            eval(fs.readFileSync('countdown.js')+'');
+            var args = msg.content.split(" ");
+            if(args[1]==null){
+                msg.channel.sendMessage("Please add how many minutes you want to countdown.")
+            }
+            if(args[2]==null){
+                msg.channel.sendMessage("Please add what you want to countdown to.")
+            } 
+            else {
+                if(isNaN(args[1])) {
+                    msg.channel.sendMessage("Please add minutes as a number.")
+                }
+                else {
+                    var date = new Date();
+                    var hnow = date.getHours()+1;
+                    var mnow = date.getMinutes();
+                    var snow = date.getSeconds();
+                    var ms = date.getMilliseconds();
+                    var htocd = math.floor(args[1]);
+                    var mtocd = math.round(args[1]%1*100);
+
+                    var mins=(htocd-hnow)*60+(mtocd-mnow)-snow/60-ms/60000;
+                    if(mins<0){
+                        mins=mins+24*60;
+                    }
+
+                    var h=math.floor(mins/60);
+                    var m=mins%60;
+                    msg.channel.sendMessage("Countdown started. "+h+"h"+m+"min to " + args[2]);
+                    if(args[3]==null) {
+                        countdown(mins,args[2],"no","countdown");            
+                    }   
+                    else {
+                        countdown(mins,args[2],args[3], "countdown");                        
+                    }
+                }
+            }
+        }
+    },
     "countdown": {
         description: "countdown in minutes. Arg1: minutes to countdown, Arg2: Event to countdown to, Arg3: everyone it should notify everyone",
         process: function(bot,msg){
