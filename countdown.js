@@ -1,4 +1,4 @@
-			function countdown(minutes, text, mention, cdtype) {
+			function countdown(mins, text, mention, cdtype) {
 				function sm(message, timeout, deletetime, mention) {
 					if(mention=="everyone") {
 						setTimeout(function(){msg.channel.sendMessage("@everyone " + message).then((message => message.delete(deletetime)));},timeout);
@@ -7,6 +7,7 @@
 						setTimeout(function(){msg.channel.sendMessage(message).then((message => message.delete(deletetime)));},timeout);
 					}
 				}
+				var minutes = math.floor(mins);
 				for(var i = 0; i<minutes;i++){
 					var minleft=minutes-i;
 					if(minleft % 60 == 0) {
@@ -30,10 +31,10 @@
 					}
 				}
 				if(mention=="everyone") {
-					setTimeout(function(){msg.channel.sendMessage("@everyone " + text + " starts now!");},i*1000*60);	
+					setTimeout(function(){msg.channel.sendMessage("@everyone " + text + " starts now!");},mins*60*1000);	
 				}
 				else {
-					setTimeout(function(){msg.channel.sendMessage(text + " starts now!");},i*1000*60);
+					setTimeout(function(){msg.channel.sendMessage(text + " starts now!");},mins*60*1000);
 				}
 				      			
 			}
