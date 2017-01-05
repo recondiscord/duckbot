@@ -79,7 +79,7 @@ Permissions.checkPermission = function (user,permission){
 	} catch(e){}
 	return false;
 }
-fs.writeFile("./permissions.json",JSON.stringify(Permissions,null,2));
+//fs.writeFile("./permissions.json",JSON.stringify(Permissions,null,2));
 
 //load config data
 var Config = {};
